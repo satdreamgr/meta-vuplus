@@ -24,6 +24,7 @@ SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KV}.tar.bz2 \
 	file://0001-stv090x-optimized-TS-sync-control.patch \
 	file://kernel-gcc6.patch \
 	file://2-2-stv090x-on-tuning-lock-return-correct-tuned-paramaters-like-freq-sr-fec-rolloff-etc.patch \
+	file://hvr-9x5-19x5-22x5-kernel-3.13.patch \
 	file://${MACHINE}_defconfig \
 	"
 
