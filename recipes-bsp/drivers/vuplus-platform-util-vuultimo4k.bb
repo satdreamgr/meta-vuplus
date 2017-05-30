@@ -1,7 +1,7 @@
 require vuplus-platform-util.inc
 
 PV="16.1"
-SRCDATE = "20170525"
+SRCDATE = "20170522"
 SRCDATE_PR = "r0"
 
 
