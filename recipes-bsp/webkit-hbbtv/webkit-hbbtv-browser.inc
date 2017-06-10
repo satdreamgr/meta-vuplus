@@ -2,7 +2,7 @@ DESCRIPTION = "Webkit browser for HbbTV"
 SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
-require conf/license/license-close.inc
+#require conf/license/license-close.inc
 
 PV = "1.0"
 PR = "${SRCDATE}"
