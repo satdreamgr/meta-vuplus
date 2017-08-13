@@ -13,8 +13,9 @@ inherit gitpkgv
 SRCREV = "9e71a84b987082e466bc6c9c3b58255748bfe338"
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
+PR = "r1"
 
-RDEPENDS_${PN}  = "vuplus-opera-browser vuplus-hbbtv-dumpait"
+RDEPENDS_${PN}  = "vuplus-opera-browser vuplus-hbbtv-dumpait libupnp"
 FILES_${PN}     = "/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/* \
         /usr/lib/enigma2/python/Components/Sources/* \
         /usr/lib/enigma2/python/Components/Converter/* \
