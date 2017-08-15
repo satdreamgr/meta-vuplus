@@ -9,10 +9,11 @@ LIC_FILES_CHKSUM = "\
 	file://Source/JavaScriptCore/parser/Parser.h;endline=23;md5=2f3cff0ad0a9c486da5a376928973a90 \
 	"
 
-DEPENDS = "zlib enchant libsoup-2.4 curl libxml2 cairo libidn gnutls \
-           gtk+ gstreamer1.0 gstreamer1.0-plugins-base flex-native bison-native gperf-native sqlite icu"
+DEPENDS = "glib-2.0 icu zlib enchant libsoup-2.4 curl libxml2 cairo libidn gnutls \
+           gtk+ gstreamer1.0 gstreamer1.0-plugins-base flex-native bison-native gperf-native sqlite3 \
+           libxslt zlib libpcre harfbuzz pango atk udev"
 
-PR = "r4"
+PR = "r5"
 PV = "r95199"
 
 BRANCH="vuplus-webkit"
@@ -72,6 +73,10 @@ do_configure_append() {
 	# somethings wrong with icu, fix it up manually
 	for makefile in $(find ${B} -name "GNUmakefile") ; do
 		sed -i s:-I/usr/include::g $makefile
+	done
+	# remove hardcoded path to /usr/bin/glib-mkenums
+	for makefile in $(find ${B} -name "GNUmakefile") ; do
+		sed -i s:/usr/bin/glib-mkenums:glib-mkenums:g $makefile
 	done
 }
 
