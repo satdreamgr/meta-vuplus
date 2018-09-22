@@ -26,10 +26,10 @@ do_install() {
 do_package_qa() {
 }
 
-PROVIDES += "chromium-browser"
-RPROVIDES_${PN} += "chromium-browser"
+#PROVIDES += "chromium-browser"
+#RPROVIDES_${PN} += "chromium-browser"
 
-PACKAGE_ARCH := "${MACHINE_ARCH}"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 FILES_${PN} = "/"
 
