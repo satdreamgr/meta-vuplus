@@ -23,6 +23,7 @@ do_install() {
 	chmod 755 ${D}/usr/local/chromium/bin/goexit
 	# patch chrome for libudev.so.1
 	sed -i 's/libudev.so.0/libudev.so.1/g' ${D}/usr/local/chromium/bin/chrome
+	sed -i 's/libudev.so.0/libudev.so.1/g' ${D}/usr/local/chromium/bin/browser_shell
 }
 
 do_package_qa() {
