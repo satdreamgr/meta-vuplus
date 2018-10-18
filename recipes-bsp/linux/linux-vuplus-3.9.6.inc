@@ -23,6 +23,8 @@ SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KV}.tar.bz2 \
 	file://0001-STV-Add-PLS-support.patch \
 	file://0001-STV-Add-SNR-Signal-report-parameters.patch \
 	file://0001-stv090x-optimized-TS-sync-control.patch \
+	file://0002-mips-kernel-fpu-gcc7.patch \
+	file://0003-mips-kernel-ilog2-gcc7.patch \
 	file://kernel-gcc6.patch \
 	file://kernel-gcc7.patch \
 	file://2-2-stv090x-on-tuning-lock-return-correct-tuned-paramaters-like-freq-sr-fec-rolloff-etc.patch \
@@ -40,7 +42,8 @@ KERNEL_OUTPUT_DIR = "."
 KERNEL_OBJECT_SUFFIX = "ko"
 KERNEL_IMAGEDEST = "/tmp"
 
-FILES_kernel-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
+KERNEL_PACKAGE_NAME ??= "kernel"
+FILES_${KERNEL_PACKAGE_NAME}-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
 
 do_configure_prepend() {
 	oe_machinstall -m 0644 ${WORKDIR}/${MACHINE}_defconfig ${WORKDIR}/defconfig
