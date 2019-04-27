@@ -1,9 +1,9 @@
 require vuplus-platform-util.inc
 
 PV="17.1"
-SRCDATE = "20181204"
+SRCDATE = "20190424"
 SRCDATE_PR = "r0"
 
 
-SRC_URI[md5sum] = "c2d4aa6b52141e80513137cb87ed30a9"
-SRC_URI[sha256sum] = "be49d8b50937c657a5a2b3eaf58b5cb5efd17788d24326af57edb6c98c969379"
+SRC_URI[md5sum] = "36db7baeffa508488700e2f11fcbc19a"
+SRC_URI[sha256sum] = "389d67dbcf263c1ef5672eb10d838e644e824904ca2f55b91ee28dba76a23224"

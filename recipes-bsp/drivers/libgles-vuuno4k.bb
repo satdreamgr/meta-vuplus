@@ -1,8 +1,8 @@
 require libgles.inc
 
-SRCDATE = "20181204"
+SRCDATE = "20190424"
 SRCDATE_PR = "r0"
 PV="17.1"
 
-SRC_URI[md5sum] = "f057b3290d3831eb0ada342cbbefe327"
-SRC_URI[sha256sum] = "16304d9f7d38645f17d9eac4ee358cd099e22601d3b282224e93d59af563588b"
+SRC_URI[md5sum] = "587cee41f530c8cfa4abceea0497c817"
+SRC_URI[sha256sum] = "8bd7fb82718ac7e1ee17e14d8c5f21e9f0e385ed02079150c5f86367be3c4f6d"
