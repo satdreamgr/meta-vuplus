@@ -29,6 +29,8 @@ SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KSRC_VER}.tar.b
 	file://kernel-gcc8.patch \
 	file://0003-mips-kernel-ilog2-gcc7.patch \
 	file://0003-3.x-uaccess-dont-mark-register-as-const.patch \
+	file://kernel-add-support-for-gcc9.patch \
+	file://0006-makefile-disable-warnings.patch \
 	file://${MACHINE}_defconfig \
 	"
 
@@ -42,7 +44,7 @@ KERNEL_OUTPUT = "arch/${ARCH}/boot/${KERNEL_IMAGETYPE}"
 KERNEL_OBJECT_SUFFIX = "ko"
 KERNEL_IMAGEDEST = "tmp"
 
-FILES_kernel-image = "/${KERNEL_IMAGEDEST}/zImage"
+FILES_${KERNEL_PACKAGE_NAME}-image = "/${KERNEL_IMAGEDEST}/zImage"
 
 do_configure_prepend() {
 	oe_machinstall -m 0644 ${WORKDIR}/${MACHINE}_defconfig ${WORKDIR}/defconfig

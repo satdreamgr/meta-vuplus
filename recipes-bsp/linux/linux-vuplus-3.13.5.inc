@@ -30,6 +30,7 @@ SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KV}.tar.bz2 \
 	file://hvr-9x5-19x5-22x5-kernel-3.13.patch \
 	file://kernel-gcc8.patch \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \
+	file://kernel-add-support-for-gcc9.patch \
 	file://${MACHINE}_defconfig \
 	"
 
