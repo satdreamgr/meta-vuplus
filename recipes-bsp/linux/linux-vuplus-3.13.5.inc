@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/linux/COPYING;md5=d7810fab7487fb0aad327b76
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/linux-vuplus-${KV}:"
 
-SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KV}.tar.bz2 \
+SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KV}.tar.bz2 \
 	file://nfs-max-rwsize-8k.patch \
 	file://rt2800usb_fix_warn_tx_status_timeout_to_dbg.patch \
 	file://linux-tcp_output.patch \
@@ -52,6 +52,9 @@ FILES_${KERNEL_PACKAGE_NAME}-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz
 
 do_configure_prepend() {
 	oe_machinstall -m 0644 ${WORKDIR}/${MACHINE}_defconfig ${WORKDIR}/defconfig
+	if ${@bb.utils.contains("MACHINE_FEATURES", 'dvbproxy', 'true', 'false', d)}; then
+		sed -i "s/bmem=220M@512M/bmem=384M@512M/g" ${WORKDIR}/defconfig
+	fi
 }
 
 kernel_do_install_append() {

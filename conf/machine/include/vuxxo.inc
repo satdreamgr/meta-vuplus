@@ -46,7 +46,7 @@ IMAGEDIR ?= "${MACHINE}"
 IMGDEPLOYDIR ?= "${DEPLOY_DIR_IMAGE}"
 EXTRA_IMAGECMD_COMPAT = " --eraseblock=0x20000 -n -l "
 
-IMAGE_CMD_ubi_prepend = " \
+IMAGE_CMD_ubifs_prepend = " \
 	rm -rf ${IMAGE_ROOTFS}/boot/*; \
 	rm -rf ${IMAGE_ROOTFS}/tmp/*; \
 "
@@ -60,6 +60,6 @@ IMAGE_CMD_ubi_append = " \
 	rm -rf vuplus; \
 "
 
-MACHINE_FEATURES += "alsa usbhost wlan kernelwifi externalwifi 3dtv switchoff osdposition hdmicec"
+MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec"
 
 require conf/machine/include/tune-mips32.inc

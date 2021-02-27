@@ -3,15 +3,19 @@ require vuplus-wifi-util.inc
 COMPATIBLE_MACHINE = "^(vuduo4k)$"
 
 PV="18.1"
-SRCDATE = "20181109"
+SRCDATE = "20201228"
 SRCDATE_PR = "r0"
-PR_append = ".1"
+PR_append = ".0"
 
-SRC_URI[md5sum] = "2df0715a75c7ff0b85f13f907536bf84"
-SRC_URI[sha256sum] = "a02c58fe339e6d75d7da9ec55d99520dff4838adec0ed60225ff4a85a7e5649d"
+SRC_URI[md5sum] = "72b9151b3fbf37df5071bfd9d2660263"
+SRC_URI[sha256sum] = "1e3fad4fddb2ba71290a6cb73bd8b5645a206f106fb13e85c96c2da413deb96f"
+
+inherit update-rc.d
+
+INITSCRIPT_PARAMS = "start 60 S ."
+INITSCRIPT_NAME = "vuplus-wifi-init.sh"
 
 do_install_append() {
-	install -d ${D}${sysconfdir}/mdev
-	install -m 0755 ${S}/bcmwifi_firmware.sh ${D}${sysconfdir}/mdev/
-	install -m 0755 ${S}/bcmwifi_drv.sh ${D}${sysconfdir}/mdev/
+	install -d ${D}${INIT_D_DIR}
+	install -m 0755 ${S}/${INITSCRIPT_NAME} ${D}${INIT_D_DIR}/${INITSCRIPT_NAME}
 }
