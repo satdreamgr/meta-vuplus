@@ -22,6 +22,7 @@ EXTRA_IMAGEDEPENDS += "\
 	enigma2-plugin-systemplugins-remotecontrolcode \
 	enigma2-plugin-extensions-addstreamurl \
 	vuplus-tuner-turbo \
+	vuplus-tuner-turbo2 \
 	${@bb.utils.contains("MACHINE_FEATURES", "bluetooth", "enigma2-plugin-systemplugins-bluetoothsetup", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "bcmwifi", "vuplus-wifi-util-${MACHINE}", "", d)} \
 "
@@ -54,6 +55,7 @@ IMAGE_CMD_tar_prepend = " \
         rm -rf ${IMAGE_ROOTFS}/tmp/zImage; \
         rm -rf ${IMAGE_ROOTFS}/boot/initrd_auto.bin; \
         cd ${IMAGE_ROOTFS}; \
+        rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
         tar -cvf ${IMGDEPLOYDIR}/rootfs.tar -C ${IMAGE_ROOTFS} .; \
         mv -f ${IMGDEPLOYDIR}/rootfs.tar ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/rootfs.tar; \
         bzip2 ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/rootfs.tar; \
@@ -62,7 +64,12 @@ IMAGE_CMD_tar_prepend = " \
         rm -rf vuplus; \
 "
 
-MACHINE_FEATURES += "alsa usbhost wlan kernelwifi extrakernelwifi 3dtv switchoff osdposition hdmicec"
+MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec vuplus-cortexa15"
+OPENPLI_FEATURES += "kodi"
+
+# xbmc/kodi-support
+DEPENDS_append_pn-kodi = " vuplus-kodi-${MACHINE}"
+RDEPENDS_kodi_append = " vuplus-kodi-${MACHINE}"
 
 require conf/machine/include/arm/arch-armv7a.inc
 

@@ -25,6 +25,7 @@ EXTRA_IMAGEDEPENDS += "\
 	enigma2-plugin-extensions-addstreamurl \
 	vuplus-hbbtv-dumpait \
 	vuplus-tuner-turbo \
+	vuplus-tuner-turbo2 \
 "
 
 TARGET_ARCH = "mipsel"
@@ -52,11 +53,11 @@ IMAGEDIR ?= "${MACHINE}"
 IMGDEPLOYDIR ?= "${DEPLOY_DIR_IMAGE}"
 EXTRA_IMAGECMD_COMPAT = " --eraseblock=0x20000 -n -l "
 
-IMAGE_CMD_ubi_prepend = " \
+IMAGE_CMD_ubifs_prepend = " \
 	cp -f ${IMAGE_ROOTFS}/tmp/vmlinux.gz ${IMGDEPLOYDIR}/${IMAGE_NAME}.vmlinux.gz; \
 	cp -f ${IMAGE_ROOTFS}/boot/initrd_cfe_auto.bin ${IMGDEPLOYDIR}/${IMAGE_NAME}.initrd_cfe_auto.bin; \
-	rm -rf ${IMAGE_ROOTFS}/tmp/vmlinux.gz; \
-	rm -rf ${IMAGE_ROOTFS}/boot/initrd_cfe_auto.bin; \
+	rm -rf ${IMAGE_ROOTFS}/boot/*; \
+	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 "
 
 IMAGE_CMD_ubi_append = " \
@@ -70,7 +71,15 @@ IMAGE_CMD_ubi_append = " \
 	rm -rf vuplus; \
 "
 
-MACHINE_FEATURES += "alsa usbhost wlan kernelwifi extrakernelwifi 3dtv switchoff osdposition hdmicec fan"
+MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec fan vuplus-mipsel"
+MACHINE_FEATURES_remove_vuzero = "vuplus-mipsel"
+
+OPENPLI_FEATURES += "kodi"
+OPENPLI_FEATURES_remove_vuzero = "kodi"
+
+# xbmc/kodi-support
+DEPENDS_append_pn-kodi = " vuplus-kodi-${MACHINE}"
+RDEPENDS_kodi_append = " vuplus-kodi-${MACHINE}"
 
 require conf/machine/include/tune-mips32.inc
 

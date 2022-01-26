@@ -9,7 +9,7 @@ PV="16.1"
 PR="${SRCDATE}.${SRCDATE_PR}"
 
 SRC_URI = " \
-    http://archive.vuplus.com/download/build_support/vuplus/vuplus-wifi-util-${MACHINE}-${PV}-${SRCDATE}.${SRCDATE_PR}.tar.gz \
+    http://code.vuplus.com/download/release/wifi/vuplus-wifi-util-${MACHINE}-${PV}-${SRCDATE}.${SRCDATE_PR}.tar.gz \
 "
 
 S="${WORKDIR}/vuplus-wifi-util-${MACHINE}"
@@ -26,6 +26,7 @@ do_install() {
 	install -m 0755 ${S}/wl ${D}${bindir}
 	install -m 0755 ${S}/wl-config.sh ${D}${bindir}
 	install -m 0755 ${S}/wl-down.sh ${D}${bindir}
+	sed  's!wl ssid $SSID!wl ssid "$SSID"!' -i ${D}${bindir}/wl-config.sh
 
 	install -d ${D}/usr/local/modules
 	install -m 0644 ${S}/dhd.ko ${D}/usr/local/modules/dhd.ko

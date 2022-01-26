@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/linux/COPYING;md5=d7810fab7487fb0aad327b76
 FILESEXTRAPATHS_prepend := "${THISDIR}/linux-vuplus-${KV}:"
 
 KSRC_VER = "4.1-1.17"
-SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KSRC_VER}.tar.bz2 \
+SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KSRC_VER}.tar.bz2 \
 	file://linux_dvb-core.patch \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \
 	file://kernel-gcc6.patch \
@@ -34,6 +34,7 @@ SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KSRC_VER}.tar.b
 	file://0015-staging-media-mn88472-simplify-NULL-tests.patch \
 	file://0016-mn88472-fix-typo.patch \
 	file://0017-mn88472-finalize-driver.patch \
+	file://0018-Add-support-for-dvb-usb-stick-Hauppauge-WinTV-dualHD.patch \
 	file://0001-dvb-usb-fix-a867.patch \
 	file://0001-Support-TBS-USB-drivers-for-4.1-kernel.patch \
 	file://0001-TBS-fixes-for-4.1-kernel.patch \
