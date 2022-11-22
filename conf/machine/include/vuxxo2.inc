@@ -25,6 +25,7 @@ EXTRA_IMAGEDEPENDS += "\
 	vuplus-hbbtv-dumpait \
 	vuplus-tuner-turbo \
 	vuplus-tuner-turbo2 \
+	hmp-usb-dvb-t2-c \
 "
 
 TARGET_ARCH = "mipsel"

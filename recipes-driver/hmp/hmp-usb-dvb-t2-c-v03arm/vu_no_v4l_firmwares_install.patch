@@ -1,0 +1,11 @@
+--- media_build-bst-14.orig/v4l/Makefile	2015-08-13 08:52:52.610072524 +0200
++++ media_build-bst-14/v4l/Makefile	2015-08-13 08:54:26.598070068 +0200
+@@ -202,7 +202,7 @@
+ #################################################
+ # installation invocation rules
+ 
+-modules_install install:: media-install firmware_install
++modules_install install:: media-install
+ 
+ remove rminstall:: media-rminstall
+ 
