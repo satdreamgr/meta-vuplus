@@ -1,0 +1,16 @@
+diff --git a/lib/python/Plugins/SystemPlugins/RemoteControlCode/plugin.py b/lib/python/Plugins/SystemPlugins/RemoteControlCode/plugin.py
+index ee38a11..1e6c005 100644
+--- a/lib/python/Plugins/SystemPlugins/RemoteControlCode/plugin.py
++++ b/lib/python/Plugins/SystemPlugins/RemoteControlCode/plugin.py
+@@ -159,8 +159,8 @@ self[&quot;list&quot;].instance.resize(eSize(*listsize))
+ # center window
+ newwidth = wsize[0]
+ newheight = wsize[1]
+-window_posx = orgpos.x() + (orgwidth - newwidth)/2
+-window_posy = orgpos.y() + (orgheight - newheight)/2
++window_posx = orgpos.x() + int((orgwidth - newwidth)/2)
++window_posy = orgpos.y() + int((orgheight - newheight)/2)
+ if (150 &gt; window_posy):
+         window_posy = 150
+ self.instance.move(ePoint(window_posx, window_posy))
+

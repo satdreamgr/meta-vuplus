@@ -2,8 +2,8 @@ require bluetoothsetup.inc
 
 COMPATIBLE_MACHINE = "^(vusolo4k)$"
 
-SRCDATE = "20180208"
-SRCDATE_PR = "r2"
+SRCDATE = "20221118"
+SRCDATE_PR = "r1"
 
-SRC_URI[md5sum] = "a78904b74c8edecf7212d90f1be8f2e8"
-SRC_URI[sha256sum] = "3da6bdcd3a261efc8bdfa65012e72198f02a1d2c1094767f90f59115af6871df"
+SRC_URI[md5sum] = "ec6af73371e0e339974154737cf95dc9"
+SRC_URI[sha256sum] = "6e988236baab230853295482fff712d227bd36c28e8a8de511132f46c6c206a1"

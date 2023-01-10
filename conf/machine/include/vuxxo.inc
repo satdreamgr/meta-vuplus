@@ -21,7 +21,7 @@ MACHINE_EXTRA_RDEPENDS += "\
 EXTRA_IMAGEDEPENDS += "\
 	vuplus-hbbtv-dumpait \
 	vuplus-tuner-turbo \
-	${@bb.utils.contains("MACHINE_FEATURES", "opera-browser", "enigma2-plugin-extensions-hbbtv", "", d)} \
+	hmp-usb-dvb-t2-c \
 "
 
 TARGET_ARCH = "mipsel"
