@@ -24,6 +24,7 @@ EXTRA_IMAGEDEPENDS += "\
 	vuplus-tuner-turbo \
 	vuplus-tuner-turbo2 \
 	hmp-usb-dvb-t2-c-arm \
+	vuplus-kexec \
 	${@bb.utils.contains("MACHINE_FEATURES", "bluetooth", "enigma2-plugin-systemplugins-bluetoothsetup", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "bcmwifi", "vuplus-wifi-util-${MACHINE}", "", d)} \
 "
@@ -49,20 +50,20 @@ IMAGEDIR ?= "${MACHINE}"
 IMGDEPLOYDIR ?= "${DEPLOY_DIR_IMAGE}"
 
 IMAGE_CMD_tar_prepend = " \
-        mkdir -p ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}; \
-        cp -f ${IMAGE_ROOTFS}/tmp/zImage ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/kernel_auto.bin; \
-        cp -f ${IMAGE_ROOTFS}/boot/initrd_auto.bin ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/initrd_auto.bin; \
-	touch ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/${FORCE_REBOOT_OPTION}.update; \
-        rm -rf ${IMAGE_ROOTFS}/tmp/zImage; \
-        rm -rf ${IMAGE_ROOTFS}/boot/initrd_auto.bin; \
-        cd ${IMAGE_ROOTFS}; \
-        rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
-        tar -cvf ${IMGDEPLOYDIR}/rootfs.tar -C ${IMAGE_ROOTFS} .; \
-        mv -f ${IMGDEPLOYDIR}/rootfs.tar ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/rootfs.tar; \
-        bzip2 ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/rootfs.tar; \
-        cd ${IMGDEPLOYDIR}; \
-        zip ${DISTRO_NAME}-${DISTRO_VERSION}-${MACHINE}_usb.zip vuplus/${UPDATE_DIR}/*; \
-        rm -rf vuplus; \
+		mkdir -p ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}; \
+		cp -f ${IMAGE_ROOTFS}/tmp/zImage ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/kernel_auto.bin; \
+		cp -f ${IMAGE_ROOTFS}/boot/initrd_auto.bin ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/initrd_auto.bin; \
+		touch ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/${FORCE_REBOOT_OPTION}.update; \
+		rm -rf ${IMAGE_ROOTFS}/tmp/zImage; \
+		rm -rf ${IMAGE_ROOTFS}/boot/initrd_auto.bin; \
+		cd ${IMAGE_ROOTFS}; \
+		rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
+		tar -cvf ${IMGDEPLOYDIR}/rootfs.tar -C ${IMAGE_ROOTFS} .; \
+		mv -f ${IMGDEPLOYDIR}/rootfs.tar ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/rootfs.tar; \
+		bzip2 ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/rootfs.tar; \
+		cd ${IMGDEPLOYDIR}; \
+		zip ${DISTRO_NAME}-${DISTRO_VERSION}-${MACHINE}_usb.zip vuplus/${UPDATE_DIR}/*; \
+		rm -rf vuplus; \
 "
 
 MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec vuplus-cortexa15"
