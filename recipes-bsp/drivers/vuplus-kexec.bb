@@ -3,14 +3,15 @@ PRIORITY = "required"
 LICENSE = "CLOSED"
 
 PV = "1.0"
-PR = "r1"
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/vuplus-kexec-${MACHINE}:"
 
 SRC_URI = " \
 	file://kernel_auto.bin \
 	file://STARTUP_cpio.bin \
 "
 
-S="${WORKDIR}/vuplus-kexec-${MACHINE}"
+S="${WORKDIR}/vuplus-kexec"
 
 do_install() {
 	install -d ${D}${bindir}
