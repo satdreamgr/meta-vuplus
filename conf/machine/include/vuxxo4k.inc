@@ -16,6 +16,7 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 
 MACHINE_EXTRA_RDEPENDS += "\
 	kernel-module-sr-mod \
+        vuplus-kexec \
 "
 
 EXTRA_IMAGEDEPENDS += "\
@@ -24,7 +25,6 @@ EXTRA_IMAGEDEPENDS += "\
 	vuplus-tuner-turbo \
 	vuplus-tuner-turbo2 \
 	hmp-usb-dvb-t2-c-arm \
-	vuplus-kexec \
 	${@bb.utils.contains("MACHINE_FEATURES", "bluetooth", "enigma2-plugin-systemplugins-bluetoothsetup", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "bcmwifi", "vuplus-wifi-util-${MACHINE}", "", d)} \
 "
