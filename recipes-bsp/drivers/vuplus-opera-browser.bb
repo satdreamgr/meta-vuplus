@@ -26,7 +26,7 @@ get ${SRC_FILE}
 bye
 +
        fi
-       cp -av ${DL_DIR}/${SRC_FILE} ${WORKDIR}/
+       cp -av --no-preserve=ownership ${DL_DIR}/${SRC_FILE} ${WORKDIR}/
 }
 
 do_unpack() {
@@ -38,10 +38,10 @@ do_compile() {
 
 do_install() {
 	install -d ${D}/usr/local/hbb-browser
-	cp -avR ${S}/opera/* ${D}/usr/local/hbb-browser/
+	cp -avR --no-preserve=ownership ${S}/opera/* ${D}/usr/local/hbb-browser/
 
 	install -d ${D}/usr/lib
-	cp -avR ${S}/dfb/usr/lib/* ${D}/usr/lib/
+	cp -avR --no-preserve=ownership ${S}/dfb/usr/lib/* ${D}/usr/lib/
 }
 
 do_install_append() {

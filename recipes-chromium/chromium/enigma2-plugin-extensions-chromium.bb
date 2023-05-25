@@ -10,13 +10,13 @@ PR = "20170324_r0"
 SRC_URI = "http://code.vuplus.com/download/chromium/e2plugin-chromium-vuplus_${PR}.tar.gz"
 SRC_URI_append = " \
            file://port-to-python3.patch"
-           
+
 #DEPENDS_${PN} = "chromium-browser"
 RDEPENDS_${PN} = "chromium-browser"
 
 do_install_append() {
 	install -d ${D}/usr/lib/enigma2/python/Plugins/Extensions/Chromium
-	cp -aRf ${WORKDIR}/e2plugin/* ${D}/usr/lib/enigma2/python/Plugins/Extensions/Chromium/
+	cp -aRf --no-preserve=ownership ${WORKDIR}/e2plugin/* ${D}/usr/lib/enigma2/python/Plugins/Extensions/Chromium/
 }
 
 do_package_qa() {
