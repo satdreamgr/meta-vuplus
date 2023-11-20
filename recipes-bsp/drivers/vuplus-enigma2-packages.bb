@@ -18,6 +18,7 @@ BRANCH = "vuplus_experimental"
 SRC_URI = "git://code.vuplus.com/git/dvbapp.git;protocol=http;branch=${BRANCH};tag=${SRCREV} \
 	file://0001-fix-compile-python3.patch \
 	file://0002-fix-type-error-crash.patch \
+	file://0003-fix-import.patch \
 	"
 
 S = "${WORKDIR}/git"
