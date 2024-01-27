@@ -16,6 +16,7 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 
 MACHINE_EXTRA_RDEPENDS += "\
 	kernel-module-sr-mod \
+	vuplus-kexec \
 "
 
 EXTRA_IMAGEDEPENDS += "\
@@ -69,8 +70,8 @@ MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec vuplus
 OPENPLI_FEATURES += "kodi"
 
 # xbmc/kodi-support
-DEPENDS_append_pn-kodi = " vuplus-kodi-${MACHINE}"
-RDEPENDS_kodi_append = " vuplus-kodi-${MACHINE}"
+#DEPENDS_append_pn-kodi = " vuplus-kodi-${MACHINE}"
+#RDEPENDS_kodi_append = " vuplus-kodi-${MACHINE}"
 
 require conf/machine/include/arm/arch-armv7a.inc
 
