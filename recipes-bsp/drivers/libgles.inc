@@ -25,11 +25,11 @@ SRC_URI_append_vusolo2 = " file://vuxxo2-BEGL.patch"
 SRC_URI_append_vusolose = " file://vuxxo2-BEGL.patch"
 
 do_install_prepend() {
-	cp -a ${S}/egl/EGL/* ${S}/include/EGL/
-	cp -a ${S}/egl/KHR/* ${S}/include/KHR/
+	cp -a --no-preserve=ownership ${S}/egl/EGL/* ${S}/include/EGL/
+	cp -a --no-preserve=ownership ${S}/egl/KHR/* ${S}/include/KHR/
 
-	cp -a ${S}/opengl/GLES/*.h ${S}/include/GLES/
-	cp -a ${S}/opengl/GLES2/* ${S}/include/GLES2/
+	cp -a --no-preserve=ownership ${S}/opengl/GLES/*.h ${S}/include/GLES/
+	cp -a --no-preserve=ownership ${S}/opengl/GLES2/* ${S}/include/GLES2/
 }
 
 
@@ -44,7 +44,7 @@ do_install() {
 	ln -s libv3ddriver.so ${D}${libdir}/libEGL.so
 	ln -s libv3ddriver.so ${D}${libdir}/libGLESv2.so
 	install -d ${D}${includedir}
-	cp -a ${S}/include/* ${D}${includedir}/
+	cp -a --no-preserve=ownership ${S}/include/* ${D}${includedir}/
 }
 
 do_package_qa() {

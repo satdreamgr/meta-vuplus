@@ -31,7 +31,7 @@ do_install() {
 	install -m 0644 ${S}/lib/python/Components/Converter/HbbtvApplicationInfo.py ${D}/usr/lib/enigma2/python/Components/Converter
 
 	install -m 0755 -d ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/locale
-	cp -av ${S}/lib/python/Plugins/Extensions/HbbTV/locale/*.po ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/locale
+	cp -av --no-preserve=ownership ${S}/lib/python/Plugins/Extensions/HbbTV/locale/*.po ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/locale
 
 	python3 -O -m compileall ${D}/usr/lib/enigma2/python/Plugins/
 }

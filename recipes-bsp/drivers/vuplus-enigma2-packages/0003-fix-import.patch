@@ -1,0 +1,12 @@
+diff --git a/lib/python/Plugins/SystemPlugins/FirmwareUpgrade/plugin.py b/lib/python/Plugins/SystemPlugins/FirmwareUpgrade/plugin.py
+index 7806da54..0816aae5 100644
+--- a/lib/python/Plugins/SystemPlugins/FirmwareUpgrade/plugin.py
++++ b/lib/python/Plugins/SystemPlugins/FirmwareUpgrade/plugin.py
+@@ -1,6 +1,6 @@
+ from __future__ import print_function
+ import os, urllib
+-from urllib import urlretrieve
++from urllib.request import urlretrieve
+ 
+ from Plugins.Plugin import PluginDescriptor
+ 
